@@ -6,6 +6,8 @@ b. Display details of a student with a given roll number.
 c. Display the details for all the students having percentage in a given range.
 d. Sort the array in ascending order of marks.
 */
+//Muhit Khan(Roll: 21052943)
+
 
 #include<stdio.h>
 #include<string.h>

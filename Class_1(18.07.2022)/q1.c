@@ -1,4 +1,5 @@
 //1.WAP to input name, roll number, and marks in 5 subjects for a student, and display it.
+//Muhit Khan(Roll: 21052943)
 #include<stdio.h>
 int main()
 {

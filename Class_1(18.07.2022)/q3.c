@@ -6,6 +6,7 @@ form, using the pointer to structure.
 DA = 80% of Basic salary
 HRA=10% of Basic salary]
 */
+//Muhit Khan(Roll: 21052943)
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
