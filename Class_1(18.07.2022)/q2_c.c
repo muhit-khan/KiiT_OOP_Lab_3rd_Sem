@@ -21,13 +21,6 @@ struct student
 void show_details_with_percentage_range(struct student stu[], int range_init, int range_fin, int number_of_students)
 {
     int n = number_of_students;
-    struct student_restruct
-    {
-        char name[30];
-        int roll;
-        int marks[5];
-        int percentage;
-    }stu_restruct[n];
     int totalmark = 0;
     float percentage;
     for(int j = 0; j < n; j++)
@@ -37,23 +30,16 @@ void show_details_with_percentage_range(struct student stu[], int range_init, in
             totalmark += stu[j].marks[i];
             percentage = (totalmark/500.00)*100.00;
         }
-        //stu_restruct[j].name = stu[j].name;
-        stu_restruct[j].roll = stu[j].roll;
-        //stu_restruct[j].marks = stu[j].marks;
-        stu_restruct[j].percentage = percentage;
-        totalmark = 0;
-    }
-    for(int i = 0; i < n; i++)
-    {
         if(percentage >= range_init && percentage <= range_fin)
         {
-            printf("Name\t: %s\nRoll\t: %d\nMarks\t:\n", stu[i].name, stu_restruct[i].roll);
+            printf("Name\t: %s\nRoll\t: %d\nMarks\t:\n", stu[j].name, stu[j].roll);
             for(int v = 0; v < 5; v++)
             {
-                printf("\t  Subject-%d: %d\n", v+1, stu[i].marks[v]);
+                printf("\t  Subject-%d: %d\n", v+1, stu[j].marks[v]);
             }
             printf("\n");
         }
+        totalmark = 0;
     }
 }
 
