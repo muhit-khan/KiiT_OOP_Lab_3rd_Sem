@@ -1,0 +1,16 @@
+Q.1. Create a class distance that stores a distance in feet and inches. Input 2 distance values in
+objects, add them, store the resultant distance in an object and display it.
+[Write the above program in two ways.
+a) store the resultant distance in the calling object:C3.add(C1,C2)
+b) return the resultant object C3=C1.add(C2)
+Q.2. Write a C++ program to swap two numbers using the following:
+a. Call by value
+b. Call by address (using pointer)
+c. Call of Reference
+Q.3. Write a C++ program to capitalize the first letter of each word of a given string. Words must
+be separated by only one space.
+Q.4. Write a C++ program to find the largest word in a given string.
+Q.5. Write a C++ program to sort characters (numbers and punctuation symbols are not
+included) in a string.
+Q.6. Write a C++ program to count all the words in a given string.
+Q.7. Write a C++ program to dynamically allocate an array of 10 elements and print the sum.
