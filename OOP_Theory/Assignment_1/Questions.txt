@@ -1,0 +1,10 @@
+Assignment 1
+
+1. Write differences between pointer and references using example.
+2. What is recursion? Discuss different types of recursions using example.
+3. Write a program in C++ to calculate the sum of numbers from 1 to n using recursion.
+4.  Write a program in C++ to calculate the power of any number using recursion. 
+5. Write a program in C++ to Print Fibonacci Series using recursion.
+6. Write a program in C++ to count the digits of a given number using recursion.
+7. Write a C++ program to dynamically create two matrixes and perform the matrix addition
+and multiplication.

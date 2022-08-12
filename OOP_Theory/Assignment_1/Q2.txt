@@ -1,0 +1,5 @@
+Q2. What is recursion? Discuss different types of recursions using example.
+Ans: The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function. Using recursive algorithm, certain problems can be solved quite easily.
+ecursion are mainly of two types depending on whether a function calls itself from within itself or more than one function call one another mutually.
+1. Direct Recursion: If a function calls itself, it's known as direct recursion. This results in a one-step recursive call: the function makes a recursive call inside its own function body.
+2. Indirect Recursion: In this recursion, there may be more than one functions and they are calling one another in a circular manner.

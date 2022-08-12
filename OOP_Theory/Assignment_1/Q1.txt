@@ -1,0 +1,17 @@
+Q1. Write differences between pointer and references using example.
+
+Ans: The main differences between pointers and reference parameters are −
+i. References are used to refer an existing variable in another name whereas pointers are used to store address of variable.
+ii. References cannot have a null value assigned but pointer can.
+iii.  reference variable can be referenced by pass by value whereas a pointer can be referenced by pass by reference.
+iv. A reference must be initialized on declaration while it is not necessary in case of pointer.
+v. A reference shares the same memory address with the original variable but also takes up some space on the stack whereas a pointer has its own memory address and size on the stack.
+
+For example,
+References:
+int a = 10;
+int &p = a;
+
+Pointer:
+int a = 10;
+int *p = &a;
