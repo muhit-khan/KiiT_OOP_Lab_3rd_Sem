@@ -1,0 +1,10 @@
+1. WAP to find the area of a circle, a rectangle, and a triangle, using the concept of function overloading.
+2. WAP to find the volume of a sphere, a cylinder, and a cuboid, using function overloading.
+3. WAP, which displays a given character, n number of times, using a function. When the n value is not provided, it should print the given character 80 times. When both the character and n value are not provided, it should print ‘*’ character 80 times.
+[Write the above program in two ways:-
+-using function overloading.
+-using default arguments.]
+4. WAP to find the square and cube of a number using an inline function.
+5. Write a C++ program to calculate the power of any number using recursion.
+6.  Write a C++  program for binary search using recursion.
+7. WAP to increment the value of an argument given to the function.
