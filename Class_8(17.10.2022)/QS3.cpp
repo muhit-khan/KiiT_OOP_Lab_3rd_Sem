@@ -1,49 +1,41 @@
-// 3. crt a class whuch will allocate the memory for a string through dynamic constractor ,
-// overload the binary + operator to concreate two string
-
 #include <iostream>
 #include <string.h>
-using namespace std;
-class String
-{
-private:
-    char *str;
-    int len;
 
+using namespace std;
+
+class AddString
+{
 public:
-    String(string s)
+    char str[200];
+
+    AddString() {}
+    AddString(char str[])
     {
-        str = new char[s.length()];
-        len = s.length();
-        for (int i = 0; i < s.length(); i++)
-        {
-            str[i] = s[i];
-        }
+        strcpy(this->str, str);
     }
-    void show()
+    AddString operator+(AddString &S2)
     {
-        for (int i = 0; i < len; i++)
-        {
-            cout << str[i];
-        }
-    }
-    String operator+(String &obj)
-    {
-        const char temp = str;
-        delete str;
-        str = new char[len + obj.len];
-        strcat(str, temp);
-        strcat(str, obj.str);
+        AddString S3;
+        strcat(this->str, S2.str);
+        strcpy(S3.str, this->str);
+        return S3;
     }
 };
 
 int main()
 {
-    String a("Coding is love. ");
-    a.show();
-    String b("But I don't Code.");
+    char str1[100], str2[100];
+    cout << "Input 1st string: ";
+    gets(str1);
+    cout << "Input 2nd string: ";
+    gets(str2);
 
-    a + b;
-    a.show();
+    AddString a1(str1);
+    AddString a2(str2);
+    AddString a3;
+
+    a3 = a1 + a2;
+    cout << "Concatenation: " << a3.str;
+
     return 0;
 }
