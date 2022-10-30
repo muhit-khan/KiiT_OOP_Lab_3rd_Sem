@@ -3,19 +3,19 @@
 
 using namespace std;
 
-class AddString
+class String
 {
 public:
     char str[200];
 
-    AddString() {}
-    AddString(char str[])
+    String() {}
+    String(char str[])
     {
         strcpy(this->str, str);
     }
-    AddString operator+(AddString &S2)
+    String operator+(String &S2)
     {
-        AddString S3;
+        String S3;
         strcat(this->str, S2.str);
         strcpy(S3.str, this->str);
         return S3;
@@ -30,9 +30,9 @@ int main()
     cout << "Input 2nd string: ";
     gets(str2);
 
-    AddString a1(str1);
-    AddString a2(str2);
-    AddString a3;
+    String a1(str1);
+    String a2(str2);
+    String a3;
 
     a3 = a1 + a2;
     cout << "Concatenation: " << a3.str;
