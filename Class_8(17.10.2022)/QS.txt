@@ -1,0 +1,8 @@
+1. create a class to store i=an int array , overload the insertion and extraction operator to dispaly the array
+2. crt a class which is a complex number , add two object and display the resultant object, overload ++ which is post and pre increment for the class
+3. crt a class whuch will allocate the memory for a string through dynamic constractor , overload the binary + operator to concreate two string
+4. wap to add two object of time class, overload the operator == to compare two object to display wheather they are equal or not
+5. wap to add two obj of distance class overload the > operator to compare two obj and return the object with distance value and display it by overloading the == operator
+6. wap to overload the following operator for class distance which stores the dist in feet and inch
+        a. add 2 object by using binary operator
+        b. add an integer to an object
