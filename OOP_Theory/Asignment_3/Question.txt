@@ -1,0 +1,33 @@
+1. We want to store the information of different vehicles. Create a class named
+Vehicle with two data members named mileage and price. Create its two
+subclasses*Car with data members to store ownership cost, warranty (by years),
+seating capacity and fuel type (diesel or petrol).*Bike with data members to store
+the number of cylinders, number of gears, cooling type(air, liquid or oil), wheel
+type(alloys or spokes) and fuel tank size(in inches)Make another two subclasses
+Audi and Ford of Car, each having a data member to store the model type. Next,
+make two subclasses Bajaj and TVS, each having a data member to store the
+make-type. Now, store and print the information of an Audi and a Ford car (i.e.
+model type, ownership cost, warranty, seating capacity, fuel type, mileage and
+price.) Do the same for a Bajaj and a TVS bike.
+2. C++ program to find area of square,rectangle,circle and triangle using virtual
+function.
+3. Write a program which consists of two classes: student and academic. The class
+academic is derived from class students. The Two member function getdata and
+display are defined for both the classes. *obj is defined for class students, the
+address of which is stored in the object of the class academic. The functions
+getdata ( )and display ( ) of student class are invoked by the pointer to the
+class.Display the contents of both classes.
+4. Write a program to explain the overloading of parenthesis operator () using
+parenthesis operator function having two parameters and no parameter:
+5. Write a class template to represent a generic vector. Include member functions to
+perform the following task
+a. To create the vector
+b. To modify the value of a given element
+c. To multiply by a scalar value
+d. To display the vector in the form (m1, m2, m3 etc) where m1, m2 and m3
+represents magnitude
+
+6. WAP to demonstrate the concept of re-throwing an exception.
+7. Write a function template to perform binary search in an array.
+8. Define a class called String and WAP by overloading == operator to compare two
+strings.
