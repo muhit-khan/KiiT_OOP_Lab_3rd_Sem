@@ -1,0 +1,24 @@
+1.  
+2. Create a class student which stores name, roll number, and age of a student. Derive a class test
+from student class, which stores marks in 5 subjects. Input and display the details of a student.
+3. Extend the program (2) to derive a class ‘result’ from class ‘test’, which includes member
+function to calculate total marks and percentage of a student. Input the data for a student and
+display its total marks and percentage.
+4. Extend the program (2) to include class sports, which stores the marks in sports activity.
+Derive the result class from the classes ‘test’ and ‘sports’. Calculate the total marks and
+percentage of a student.
+5. Create a class ‘shape’. Derive three classes from it: Circle, Triangle, and Rectangle. Include
+the relevant data members and functions in all the classes. Find the area of each shape and
+display it.
+6. Create a class ‘Employee’ which stores employee name, id and salary. Derive two classes
+from ‘Employee’ class: ‘Regular’ and ‘Part-Time’. The ‘Regular’ class stores DA, HRA, and
+basic salary. The ‘Part-Time’ class stores the number of hours and pay per hour. Calculate the
+salary of a regular employee and a part-time employee.
+7. Create an ‘Account’ class that stores account number, customer name, and balance. Derive
+two classes from ‘Account’ class: ‘Savings’ and ‘Current’. The ‘Savings’ class stores minimum
+balance. The ‘Current’ class stores the over-due amount. Include member functions in the
+appropriate class for
+-deposit money
+-withdraw [For saving, minimum account balance should be checked.]
+[For the current account, the overdue amount should be calculated.]
+-display balance

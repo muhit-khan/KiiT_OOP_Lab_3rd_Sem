@@ -1,0 +1,16 @@
+
+    Topic: File Handling
+
+    
+1.	WAP to display content of a file using character output function.
+2.	WAP to copy content of one file to another.
+3.	 WAP to write 10 strings into a file and display them from file.
+4.	WAP to display content of a file in reverse order.
+5.	WAP to count following in a given file:
+    a.	No. of characters
+    b.	No. of words
+    c.	No. of lines
+    d.	No. of uppercase letters, lowercase letters, digits and special symbols.
+6.	WAP to convert all uppercase letters in a given file, to lower case and vice-versa.
+7.	WAP to read and write objects to a file, using read and write functions.
+8.	WAP to write multiple data to a file using insertion operator and read data from file using extraction operator.
