@@ -1,231 +1,226 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
-
-template <typename M>
-M myEquality(M s, M t)
+class Students
 {
-    return (s != t) ? s : (t = 0);
+public:
+    char *name;
+    char *class_std;
+    char sec[50];
+    int roll_no;
+    int *ptr;
+    virtual void GetData()
+    {
+        name = new char[50];
+        class_std = new char[50];
+        cout << "\nDEFAULT CONSTRUCTOR CALLED\n"
+             << endl;
+        cout << "Name of student:  ";
+        getchar();
+        gets(name);
+        cout << "Branch of student:  ";
+        gets(class_std);
+        cout << "Roll No of student:  ";
+        cin >> roll_no;
+    }
+    virtual void display_students()
+    {
+        cout << "The details of the student:\n"
+             << endl;
+        cout << "Name:\t" << name << endl;
+        cout << "Branch:\t" << class_std << endl;
+        cout << "Roll No:\t" << roll_no << endl;
+    }
+};
+class Lab_marks;
+class Assignment;
+class Test : public Students
+{
+public:
+    double marks_dsa;
+    double marks_oop;
+    double marks_hse;
+    double marks_de;
+    double tot;
+    double per;
+    void GetData()
+    {
+        cout << "Marks in DSA:";
+        cin >> marks_dsa;
+        cout << "Marks in DE:";
+        cin >> marks_de;
+        cout << "Marks in HSE:";
+        cin >> marks_hse;
+        cout << "Marks in OOP:";
+        cin >> marks_oop;
+    }
+    friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
+
+    Test operator==(Test t1)
+    {
+        if (per > t1.per)
+        {
+            cout << "\n\nFirst student has higher percentage than second student:" << endl;
+        }
+        else
+        {
+            cout << "\n\nSecond student has higher percentage than First student:" << endl;
+        }
+        return t1;
+    }
+};
+class Assignment : public Students
+{
+public:
+    int marks_submitting;
+    int c;
+    Assignment()
+    {
+        cout << "Has the student submitted his assignment (1 for yes and 2 for no):" << endl;
+        cin >> c;
+        if (c == 1)
+        {
+            cout << "Marks in assignment he submitted:" << endl;
+            cin >> marks_submitting;
+        }
+        else
+        {
+            cout << "No marks allotted" << endl;
+        }
+    }
+    Assignment(int s)
+    {
+        cout << "Has the student submitted his assignment (1 for yes and 2 for no):" << endl;
+        cin >> c;
+        if (c == 1)
+        {
+            marks_submitting += s;
+        }
+        else
+        {
+            cout << "No marks allotted" << endl;
+        }
+    }
+    friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
+    ~Assignment()
+    {
+        cout << "\nDestructor called";
+    }
+};
+class Lab_marks : public Students
+{
+public:
+    double lab_marks;
+    double viva;
+    Lab_marks()
+    {
+        cout << "Enter the marks secured in viva (out of 50):";
+        cin >> viva;
+        cout << "Enter the lab marks (out of 50):";
+        cin >> lab_marks;
+    }
+    Lab_marks(double viva, double lab_marks)
+    {
+        cout << "Enter the marks secured in viva (out of 50):";
+        cin >> viva;
+        cout << "Enter the lab marks (out of 50):";
+        cin >> lab_marks;
+    }
+    ~Lab_marks()
+    {
+        cout << "\nDestructor called:";
+    }
+    friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
+};
+void TotalGrade(Lab_marks l1, Test t1, Assignment a1)
+{
+    t1.tot = t1.marks_de + t1.marks_dsa + t1.marks_hse + t1.marks_oop + l1.viva + l1.lab_marks + a1.marks_submitting;
+    t1.per = t1.tot / 6;
+    cout << "Percentage of the student is:" << t1.per << endl;
+    if (t1.per >= 90 && t1.per < 100)
+        cout << "\nStudent's Grade:  A+" << endl;
+    if (t1.per >= 80 && t1.per < 90)
+        cout << "\nStudent's Grade:  A" << endl;
+    if (t1.per >= 70 && t1.per < 80)
+        cout << "\nStudent's Grade:  B" << endl;
+    if (t1.per >= 60 && t1.per < 70)
+        cout << "\nStudent's Grade:  C" << endl;
+    if (t1.per >= 50 && t1.per < 60)
+        cout << "\nStudent's Grade:  D" << endl;
+    if (t1.per >= 40 && t1.per < 50)
+        cout << "\nStudent's Grade:  E" << endl;
+    if (t1.per < 40)
+        cout << "\nStudent has failed" << endl;
 }
-class Toll
+template <class T>
+T TotalGrade2(Lab_marks l1, Test t1, Assignment a1)
 {
-public:
-    int cars_crossed;
-    int count;
-    void get()
-    {
-        cout << "The no of cars that have already crossed : \n";
-        cin >> cars_crossed;
-        count = cars_crossed;
-    }
-
-    Toll operator++(int)
-    {
-        count++;
-    }
-};
-class X
-{
-public:
-    int g;
-    void get()
-    {
-        cin >> g;
-    }
-};
-
-class Y
-{
-public:
-    int h;
-    void get()
-    {
-        cin >> h;
-    }
-};
-
-class Z : public X, public Y
-{
-public:
-    int temp;
-    void swap()
-    {
-        temp = g;
-        g = h;
-        h = temp;
-    }
-};
-class Wealth
-{ // base class
-
-public:
-    void show()
-    {
-
-        cout << "The father works hard for his whole life to ensure that his family is being well provided!" << endl;
-    }
-
-    virtual void display()
-    {
-
-        cout << "The father expresses his emotions the least but still has a smile on his face." << endl;
-    }
-};
-
-class Son : public Wealth
-{ // derived class
-
-public:
-    void show()
-    {
-
-        cout << "One should be immensely grateful to his/her family. " << endl;
-    }
-
-    void display()
-    {
-
-        cout << "As a son, one should make sure that he pays back well to the living gods, because of whom he stands firm at his destination." << endl;
-    }
-};
-
-class Simplification
-{ // base class
-
-    int a1, a2, a3;
-
-public:
-    void getdata()
-    {
-
-        cout << "Enter value of a1 :" << endl;
-
-        cin >> a1;
-
-        cout << "Enter value of a2 :" << endl;
-
-        cin >> a2;
-
-        cout << "Enter value of a3 :" << endl;
-
-        cin >> a3;
-    }
-
-    friend int cal(Simplification S)
-    {
-
-        return ((S.a1 + S.a2) * (S.a3 - S.a1));
-    }
-};
+    T tot;
+    tot = t1.marks_de + t1.marks_dsa + t1.marks_hse + t1.marks_oop + l1.viva + l1.lab_marks + a1.marks_submitting;
+    T per;
+    per = tot / 6;
+    cout << "Percentage of the student is:" << per << endl;
+    if (per >= 90 && per < 100)
+        cout << "\nStudent's Grade:  A+" << endl;
+    if (per >= 80 && per < 90)
+        cout << "\nStudent's Grade:  A" << endl;
+    if (per >= 70 && per < 80)
+        cout << "\nStudent's Grade:  B" << endl;
+    if (per >= 60 && per < 70)
+        cout << "\nStudent's Grade:  C" << endl;
+    if (per >= 50 && per < 60)
+        cout << "\nStudent's Grade:  D" << endl;
+    if (per >= 40 && per < 50)
+        cout << "\nStudent's Grade:  E" << endl;
+    if (per < 40)
+        cout << "\nStudent has failed" << endl;
+    return per;
+}
 
 int main()
 {
+    Students *s = new Students;
+    s->GetData();
+    s->display_students();
+    Test t1;
+    s = &t1;
+    s->GetData();
+    Assignment a1;
+    Lab_marks l1;
+    cout << "\n\n*******Grade and percentage by using friend function*****\n\n"
+         << endl;
+    TotalGrade(l1, t1, a1);
+    cout << "\n\n*******Grade and percentage by using template function*****\n"
+         << endl;
+    TotalGrade2<float>(l1, t1, a1);
 
-    cout << "A program based on various c++ concepts !\n";
+    Students *s2 = new Students;
+    s2->GetData();
+    s2->display_students();
+    Test t2;
+    s2 = &t2;
+    s2->GetData();
+    Assignment a2;
+    Lab_marks l2;
+    cout << "\n\n*******Grade and percentage by using friend function*****\n\n"
+         << endl;
+    TotalGrade(l2, t2, a2);
+    cout << "\n\n*******Grade and percentage by using template function*****\n"
+         << endl;
+    TotalGrade2<float>(l2, t2, a2);
 
-    int k;
+    t1 == t2;
 
-    Z z;
-
-    Wealth *O;
-
-    Son p;
-
-    do
-    {
-
-        cout << "Main Menu " << endl;
-
-        cout << "1. Concept of template ." << endl;
-
-        cout << "2. Concept of Operator Overloading ." << endl;
-
-        cout << "3. Multiple Inheritance." << endl;
-
-        cout << "4. Virtual Function. " << endl;
-
-        cout << "5. Friend Function ." << endl;
-
-        cout << "Enter your choice : " << endl;
-
-        cin >> k;
-
-        switch (k)
-        {
-
-        case 1:
-        {
-
-            cout << "The output of the template function is : \n";
-
-            cout << myEquality<int>(5, 5) << endl;
-
-            break;
-        }
-        case 2:
-        {
-
-            Toll A;
-
-            A.get();
-
-            int l;
-
-            cout << "--> 1 for entering the toll plaza" << endl;
-
-            cout << "--> Any other numeric value to denote avoiding of toll." << endl;
-
-            cout << "enter your choice : " << endl;
-
-            cin >> l;
-
-            do
-            {
-
-                if (l == 1)
-                {
-
-                    A++;
-                }
-                else
-                {
-
-                    cout << "This vehicle(@ present) follows an alternative road. \n";
-                }
-                cout << "enter your choice : " << endl;
-                cin >> l;
-            } while (l <= 1);
-            cout << "This vehicle(@ present) follows an alternative road. \n";
-            cout << "The no of vehicles crossed the Toll at present : \n"
-                 << A.count << endl;
-            break;
-        }
-        case 3:
-        {
-            cout << "An example to show the concept of multiple inheritance : \n";
-            z.X::get();
-            z.Y::get();
-            z.swap();
-            break;
-        }
-        case 4:
-        {
-            cout << "This is to explain the use of the virtual function ." << endl;
-            O = &p;
-            O->display();
-            O->show();
-            break;
-        }
-        case 5:
-        {
-            cout << "This demonstrates the use of freind function. " << endl;
-            Simplification M;
-            M.getdata();
-            cout << "The value of the simplification is : " << cal(M) << endl;
-            break;
-        }
-        }
-        cout << "Enter your choice : " << endl;
-        cin >> k;
-    } while (k != 6);
-    return 0;
+    ofstream obj;
+    obj.open("Student.txt");
+    obj << t1.marks_de << endl;
+    obj << t1.marks_dsa << endl;
+    obj << t1.marks_oop << endl;
+    obj << t1.marks_hse << endl;
+    obj << a1.marks_submitting << endl;
+    obj << l1.lab_marks + l1.viva << endl;
+    double per2, tot2;
+    tot2 = t1.marks_de + t1.marks_dsa + t1.marks_hse + t1.marks_oop + l1.viva + l1.lab_marks + a1.marks_submitting;
+    per2 = tot2 / 6;
+    obj << per2 << endl;
 }
