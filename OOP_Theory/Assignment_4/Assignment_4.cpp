@@ -32,7 +32,7 @@ public:
         cout << "Roll No:\t" << roll_no << endl;
     }
 };
-class Lab_marks;
+class LabMarks;
 class Assignment;
 class Test : public Students
 {
@@ -52,11 +52,9 @@ public:
         cout << "Marks in HSE:";
         cin >> marks_hse;
         cout << "Marks in OOP:";
-        g
-                cin >>
-            marks_oop;
+        cin >> marks_oop;
     }
-    friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
+    friend void TotalGrade(LabMarks l1, Test t1, Assignment a1);
 
     Test operator==(Test t1)
     {
@@ -103,38 +101,38 @@ public:
             cout << "No marks allotted" << endl;
         }
     }
-    friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
+    friend void TotalGrade(LabMarks l1, Test t1, Assignment a1);
     ~Assignment()
     {
         cout << "\nDestructor called";
     }
 };
-class Lab_marks : public Students
+class LabMarks : public Students
 {
 public:
     double lab_marks;
     double viva;
-    Lab_marks()
+    LabMarks()
     {
         cout << "Enter the marks secured in viva (out of 50):";
         cin >> viva;
         cout << "Enter the lab marks (out of 50):";
         cin >> lab_marks;
     }
-    Lab_marks(double viva, double lab_marks)
+    LabMarks(double viva, double lab_marks)
     {
         cout << "Enter the marks secured in viva (out of 50):";
         cin >> viva;
         cout << "Enter the lab marks (out of 50):";
         cin >> lab_marks;
     }
-    ~Lab_marks()
+    ~LabMarks()
     {
         cout << "\nDestructor called:";
     }
-    friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
+    friend void TotalGrade(LabMarks l1, Test t1, Assignment a1);
 };
-void TotalGrade(Lab_marks l1, Test t1, Assignment a1)
+void TotalGrade(LabMarks l1, Test t1, Assignment a1)
 {
     t1.tot = t1.marks_de + t1.marks_dsa + t1.marks_hse + t1.marks_oop + l1.viva + l1.lab_marks + a1.marks_submitting;
     t1.per = t1.tot / 6;
@@ -155,7 +153,7 @@ void TotalGrade(Lab_marks l1, Test t1, Assignment a1)
         cout << "\nStudent has failed" << endl;
 }
 template <class T>
-T TotalGrade2(Lab_marks l1, Test t1, Assignment a1)
+T TotalGrade2(LabMarks l1, Test t1, Assignment a1)
 {
     T tot;
     tot = t1.marks_de + t1.marks_dsa + t1.marks_hse + t1.marks_oop + l1.viva + l1.lab_marks + a1.marks_submitting;
@@ -188,7 +186,7 @@ int main()
     s = &t1;
     s->GetData();
     Assignment a1;
-    Lab_marks l1;
+    LabMarks l1;
     cout << "\n\n*******Grade and percentage by using friend function*****\n\n"
          << endl;
     TotalGrade(l1, t1, a1);
@@ -203,7 +201,7 @@ int main()
     s2 = &t2;
     s2->GetData();
     Assignment a2;
-    Lab_marks l2;
+    LabMarks l2;
     cout << "\n\n*******Grade and percentage by using friend function*****\n\n"
          << endl;
     TotalGrade(l2, t2, a2);
