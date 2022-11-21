@@ -52,7 +52,9 @@ public:
         cout << "Marks in HSE:";
         cin >> marks_hse;
         cout << "Marks in OOP:";
-        cin >> marks_oop;
+        g
+                cin >>
+            marks_oop;
     }
     friend void TotalGrade(Lab_marks l1, Test t1, Assignment a1);
 
